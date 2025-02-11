@@ -1,70 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8" />
-  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#000000" />
   <meta name="description" content="Web site created using create-react-app" />
-  <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-
-  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-
-  <title>Kur App</title>
-  <link rel="stylesheet" href="styles.css">
-
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        let elements = document.querySelectorAll(".container");
-        function checkScroll() {
-            elements.forEach(el => {
-                let position = el.getBoundingClientRect().top;
-                if (position < window.innerHeight - 100) {
-                    el.classList.add("fade-in");
-                }
-            });
-        }
-        window.addEventListener("scroll", checkScroll);
-        checkScroll();
-    });
-</script>
+  <title>React App</title>
 </head>
-
 <body>
   <noscript>You need to enable JavaScript to run this app.</noscript>
   <div id="root"></div>
-  <header>
-    <img src="logo.png" alt="Logo">
-    <div class="header-title">
-        <span>Ученически</span>
-        <span>Обектив</span>
-    </div>
-</header>
-<nav>
-    <a href="index.html">Начало</a>
-    <a href="news.html">Новини</a>
-    <a href="library.html">Библиотека</a>
-    <a href="rewards.html">Награди</a>
-    <a href="contact.html">Контакти</a>
-</nav>
-<div class="container" id="home">
-    <div class="poster"></div>
-    <div class="register-section">
-        <h1>Добре дошли!</h1>
-        <p>Тук можете да се регистрирате за фестивала.</p>
-        <div class="btn-container">
-            <p>Основна регистрация</p>
-            <a href="#" class="btn">Регистрация 1</a>
-            <p>Специална регистрация</p>
-            <a href="#" class="btn">Регистрация 2</a>
-            <p>VIP регистрация</p>
-            <a href="#" class="btn">Регистрация 3</a>
-        </div>
-    </div>
-</div>
-<footer>
-    &copy; 2025 Ученически Обектив. Всички права запазени.
-</footer>
-  </body>
+</body>
 </html>

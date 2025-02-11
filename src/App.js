@@ -8,6 +8,7 @@ import News from "./pages/News";
 import Library from "./pages/Library";
 import Rewards from "./pages/Rewards";
 import Contact from "./pages/Contact";
+import AdminPage from "./pages/AdminPage";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/library" element={<Library />} />
         <Route path="/rewards" element={<Rewards />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/admin" element={<AdminPage />} />
       </Routes>
       <Footer />
     </Router>
