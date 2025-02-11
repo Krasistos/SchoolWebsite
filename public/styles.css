@@ -10,23 +10,22 @@ body {
     min-height: 100vh;
 }
 header {
-    background: linear-gradient(135deg, #070948, #444);
     color: white;
-    padding: 20px;
+    padding: 25px;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.4);
 }
 header img {
-    height: 60px;
+    height: 100px;
     margin-right: 20px;
 }
 .header-title {
     display: flex;
     flex-direction: column;
     text-align: left;
-    font-size: 24px;
+    font-size: 30px;
     font-weight: bold;
 }
 nav {
@@ -39,7 +38,7 @@ nav a {
     color: white;
     text-decoration: none;
     margin: 0 15px;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: bold;
     transition: 0.3s;
 }
@@ -49,24 +48,55 @@ nav a:hover {
 }
 .container {
     flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     padding: 50px;
-    animation: fadeIn 1s ease-in-out;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-in-out;
 }
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
+.poster {
+    width: 50%;
+    height: 1000px;
+    background: url('poster.png') no-repeat center center/cover;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.4s ease-in-out;
+}
+.poster:hover {
+    transform: scale(1.05);
+}
+.register-section {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 22px;
+}
+.register-section h1 {
+    font-size: 28px;
+}
+.btn-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.btn-container p {
+    margin: 5px 0;
+    font-size: 18px;
 }
 .btn {
     display: inline-block;
-    padding: 12px 24px;
+    padding: 14px 28px;
     margin: 10px;
     background: linear-gradient(90deg, #910b1b, #700a15);
     color: white;
     border-radius: 25px;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: bold;
-    transition: 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out;
+    background: 0.3s ease-in-out;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
 }
 .btn:hover {
@@ -74,10 +104,16 @@ nav a:hover {
     background: linear-gradient(90deg, #700a15, #910b1b);
 }
 footer {
-    background-color: black;
     color: white;
     padding: 20px;
     text-align: center;
     margin-top: auto;
     box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.3);
+}
+header, footer {
+    background: linear-gradient(to right, #151651 80%, black);
+}
+.fade-in {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
 }

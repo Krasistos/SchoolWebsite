@@ -1,8 +1,28 @@
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Header from "./components/Header";
+import Nav from "./components/Nav";
+import Footer from "./components/Footer";
+import Home from "./pages/Home";
+import News from "./pages/News";
+import Library from "./pages/Library";
+import Rewards from "./pages/Rewards";
+import Contact from "./pages/Contact";
+
 function App() {
   return (
-    <div>
-      <h1>Welcome to My Custom React App</h1>
-    </div>
+    <Router>
+      <Header />
+      <Nav />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/news" element={<News />} />
+        <Route path="/library" element={<Library />} />
+        <Route path="/rewards" element={<Rewards />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+      <Footer />
+    </Router>
   );
 }
 

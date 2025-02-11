@@ -13,6 +13,22 @@
 
   <title>Kur App</title>
   <link rel="stylesheet" href="styles.css">
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let elements = document.querySelectorAll(".container");
+        function checkScroll() {
+            elements.forEach(el => {
+                let position = el.getBoundingClientRect().top;
+                if (position < window.innerHeight - 100) {
+                    el.classList.add("fade-in");
+                }
+            });
+        }
+        window.addEventListener("scroll", checkScroll);
+        checkScroll();
+    });
+</script>
 </head>
 
 <body>
@@ -33,11 +49,19 @@
     <a href="contact.html">Контакти</a>
 </nav>
 <div class="container" id="home">
-    <h1>Добре дошли!</h1>
-    <p>Тук можете да се регистрирате за фестивала.</p>
-    <a href="#" class="btn">Регистрация 1</a>
-    <a href="#" class="btn">Регистрация 2</a>
-    <a href="#" class="btn">Регистрация 3</a>
+    <div class="poster"></div>
+    <div class="register-section">
+        <h1>Добре дошли!</h1>
+        <p>Тук можете да се регистрирате за фестивала.</p>
+        <div class="btn-container">
+            <p>Основна регистрация</p>
+            <a href="#" class="btn">Регистрация 1</a>
+            <p>Специална регистрация</p>
+            <a href="#" class="btn">Регистрация 2</a>
+            <p>VIP регистрация</p>
+            <a href="#" class="btn">Регистрация 3</a>
+        </div>
+    </div>
 </div>
 <footer>
     &copy; 2025 Ученически Обектив. Всички права запазени.
