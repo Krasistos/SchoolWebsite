@@ -1,3 +1,4 @@
+/* Base Styles */
 body {
     font-family: 'Playfair Display', serif;
     margin: 0;
@@ -8,84 +9,152 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-}
-header {
-    color: white;
+  }
+  
+  /* Header */
+  header {
+    color: #910b1b;
     padding: 25px;
     display: flex;
     align-items: center;
     justify-content: center;
     box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.4);
-}
-header img {
+  }
+  header img {
     height: 100px;
     margin-right: 20px;
-}
-.header-title {
+  }
+  .header-title {
     display: flex;
     flex-direction: column;
     text-align: left;
     font-size: 30px;
     font-weight: bold;
-}
-nav {
-    margin: 20px 0;
+    color: #910b1b;
+  }
+  
+  /* Navigation */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    margin: 0;
     background-color: #910b1b;
-    padding: 10px 0;
+    padding: 15px 0;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-}
-nav a {
+  }
+  nav a {
     color: white;
     text-decoration: none;
-    margin: 0 15px;
-    font-size: 20px;
+    margin: 0 20px;
+    font-size: 22px;
     font-weight: bold;
-    transition: 0.3s;
-}
-nav a:hover {
+    transition: transform 0.3s ease-in-out;
+  }
+  nav a:hover {
     color: #f5f5f5;
     text-decoration: underline;
-}
-.container {
+    transform: scale(1.1);
+  }
+  
+  /* Container and Fade-in Animation */
+  .container {
     flex: 1;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    align-items: flex-start;
+    justify-content: center;
     padding: 50px;
     opacity: 0;
     transform: translateY(30px);
     transition: all 0.8s ease-in-out;
-}
-.poster {
-    width: 700px;
-    height: 1000px;
+  }
+  .fade-in {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
+  
+  /* Poster Styles */
+  .poster {
+    width: 50%;
+    max-width: 700px;
+    aspect-ratio: 7 / 10;
     background: url('poster.png') no-repeat center center/cover;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
     transition: transform 0.4s ease-in-out;
-}
-.poster:hover {
+  }
+  .poster:hover {
     transform: scale(1.05);
-}
-.register-section {
+  }
+  
+  /* Dark Overlay on Hover using a pseudo-element */
+  .poster::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+  }
+  .poster:hover::after {
+    opacity: 1;
+  }
+  
+  /* Poster Overlay with Button */
+  .poster-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+  }
+  .poster:hover .poster-overlay {
+    opacity: 1;
+  }
+  .view-poster-button {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .view-poster-button:hover {
+    background-color: rgba(255, 255, 255, 1);
+  }
+  
+  /* Registration Section */
+  .register-section {
     width: 40%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-size: 22px;
-}
-.register-section h1 {
-    font-size: 28px;
-}
-.btn-container {
+    text-align: center;
+    font-size: 24px;
+  }
+  .register-section h1 {
+    font-size: 32px;
+  }
+  .btn-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-.btn-container p {
+  }
+  .btn-container p {
     margin: 5px 0;
     font-size: 18px;
-}
-.btn {
+  }
+  .btn {
     display: inline-block;
     padding: 14px 28px;
     margin: 10px;
@@ -95,25 +164,109 @@ nav a:hover {
     text-decoration: none;
     font-size: 20px;
     font-weight: bold;
-    transition: transform 0.3s ease-in-out;
-    background: 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-}
-.btn:hover {
+  }
+  .btn:hover {
     transform: scale(1.1);
     background: linear-gradient(90deg, #700a15, #910b1b);
-}
-footer {
+  }
+  
+  /* Article Section */
+  .article-section {
+    width: 80%;
+    margin: 50px auto;
+    text-align: center;
+    padding: 20px;
+    background: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+  }
+  .article-section:hover {
+    transform: scale(1.02);
+  }
+  .article-section video {
+    width: 100%;
+    border-radius: 10px;
+  }
+  .read-more {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #910b1b;
+    color: white;
+    font-size: 18px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+  }
+  .read-more:hover {
+    transform: scale(1.1);
+    background: #700a15;
+  }
+  
+  /* Footer */
+  footer {
     color: white;
     padding: 20px;
     text-align: center;
     margin-top: auto;
     box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.3);
-}
-header, footer {
     background: linear-gradient(to right, #151651 80%, black);
-}
-.fade-in {
-    opacity: 1 !important;
-    transform: translateY(0) !important;
-}
+  }
+  .footer-sponsors {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+  }
+  .footer-sponsors a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  .footer-sponsors img {
+    height: 40px;
+    margin-right: 10px;
+  }
+  
+  /* Modal for Poster View */
+  .poster-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 2000; /* Higher than nav (z-index:1000) */
+  }
+  .poster-modal.active {
+    display: flex;
+  }
+  .poster-modal-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+    background: url('poster.png') no-repeat center center/contain;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+  }
+  .close-modal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 5px;
+    z-index: 3000; /* Above the modal content */
+  }
+  
