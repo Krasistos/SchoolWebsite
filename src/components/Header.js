@@ -5,8 +5,14 @@ import "../styles.css";
 const Header = () => {
   return (
     <header className="header">
-      <img src="./logo.png" alt="Logo" className="logo" />
-      <div className="header-title">
+      <div className="header-left">
+      </div>
+      <div className="header-title1">
+        <span>Национален</span>
+        <span>Кинофестивал</span>
+      </div>
+        <img src="./logo.png" alt="Logo" className="logo" />
+      <div className="header-title2">
         <span>Ученически</span>
         <span>Обектив</span>
       </div>

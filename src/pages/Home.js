@@ -82,7 +82,6 @@ function Home() {
             <button className="close-modal sticky" onClick={closeModal}>
               ×
             </button>
-            <img src="/poster.png" alt="Event Poster" className="modal-poster" />
           </div>
         </div>
       )}

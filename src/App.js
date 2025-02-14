@@ -9,6 +9,7 @@ import Library from "./pages/Library";
 import Rewards from "./pages/Rewards";
 import Contact from "./pages/Contact";
 import AdminPage from "./pages/AdminPage";
+import Schedule from "./pages/Schedule";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/news" element={<News />} />
+        <Route path="/schedule" element={<Schedule />} />
         <Route path="/library" element={<Library />} />
         <Route path="/rewards" element={<Rewards />} />
         <Route path="/contact" element={<Contact />} />
