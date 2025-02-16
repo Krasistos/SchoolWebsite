@@ -59,17 +59,17 @@ function Home() {
           <h1>Добре дошли!</h1>
           <p>Тук можете да се регистрирате за фестивала.</p>
           <div className="btn-container">
-            <p>Основна регистрация</p>
+            <p>Регистрация на игрален филм с продължителност 5-20 мин.</p>
             <a href="https://rivalsmeta.com/characters/mantis/leaderboard" className="btn">
-              Регистрация 1
+              Регистрирай се
             </a>
-            <p>Специална регистрация</p>
+            <p>Документален филм с продължителност 5-20 мин.</p>
             <a href="https://rivalsmeta.com/characters/mantis/leaderboard" className="btn">
-              Регистрация 2
+              Регистрирай се
             </a>
-            <p>VIP регистрация</p>
+            <p>Анимация - продължителност 5-20 мин.</p>
             <a href="https://rivalsmeta.com/characters/mantis/leaderboard" className="btn">
-              Регистрация 3
+              Регистрирай се
             </a>
           </div>
         </div>
