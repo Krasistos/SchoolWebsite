@@ -1,12 +1,14 @@
 const express = require("express");
-const sequelize = require("./config/database"); // Updated path
+const sequelize = require("./database");
 const User = require("./models/User");
 
 const app = express();
 app.use(express.json());
 
+// Test Route
 app.get("/", (req, res) => res.send("API is running..."));
 
+// Fetch All Users
 app.get("/users", async (req, res) => {
   try {
     const users = await User.findAll();
@@ -15,17 +17,19 @@ app.get("/users", async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 });
+app.use(express.json()); // Ensure JSON body parsing
 
 app.post("/users", async (req, res) => {
   try {
-    const { name, email, password } = req.body;
-    const newUser = await User.create({ name, email, password });
-    res.status(201).json(newUser);
+    const { name, email, password, role } = req.body;
+    const newUser = await User.create({ name, email, password, role });
+
+    res.status(201).json({ message: "User created ✅", user: newUser });
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    res.status(500).json({ message: "Error creating user ❌", error: error.message });
   }
 });
-
+// Sync DB and Start Server
 const startServer = async () => {
   try {
     await sequelize.authenticate();
