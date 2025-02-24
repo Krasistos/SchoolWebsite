@@ -1,6 +1,7 @@
-require("dotenv").config({ path: "../.env" });
+require("dotenv").config();
 const express = require("express");
 const { Pool } = require("pg");
+const path = require("path");
 
 const app = express();
 const pool = new Pool({
@@ -15,7 +16,7 @@ const pool = new Pool({
 // Middleware to parse JSON
 app.use(express.json());
 
-// ✅ API Route (Make sure this comes before `app.use(express.static("build"))`)
+// ✅ Serve API routes **before** React
 app.get("/api/users", async (req, res) => {
   try {
     const result = await pool.query("SELECT * FROM users");
@@ -26,13 +27,18 @@ app.get("/api/users", async (req, res) => {
   }
 });
 
-// ❗ Move this **after** defining API routes
-app.use(express.static("build"));
+// ✅ Serve static files from React build
+const frontendPath = path.join(__dirname, "build");
+app.use(express.static(frontendPath));
 
-// Handle React frontend routes
+// ✅ Catch-all route: Only handle **non-API requests** with React
 app.get("*", (req, res) => {
-  res.sendFile(__dirname + "/build/index.html");
+  if (req.originalUrl.startsWith("/api/")) {
+    return res.status(404).json({ error: "API route not found" });
+  }
+  res.sendFile(path.join(frontendPath, "index.html"));
 });
 
+// Start server
 const port = process.env.PORT || 5000;
-app.listen(port, () => console.log(`Server running on port ${port}`));
+app.listen(port, () => console.log(`✅ Server running on port ${port}`));
