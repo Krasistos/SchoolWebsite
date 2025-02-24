@@ -1,6 +1,10 @@
+// Load environment variables from .env file
 require("dotenv").config({ path: "../.env" });
+
+const express = require("express");
 const { Pool } = require("pg");
 
+// Set up the PostgreSQL connection pool
 const pool = new Pool({
   user: process.env.DB_USER,
   host: process.env.DB_HOST, // Make sure this is NOT "localhost"
@@ -12,21 +16,37 @@ const pool = new Pool({
   },
 });
 
+// Test the database connection and query for users
 pool.connect()
   .then(client => {
-    return client.query(`
-      SELECT * 
-      FROM users
-    `)  // Query for all table names
+    return client.query("SELECT * FROM users")  // Example query to fetch users
       .then(res => {
-        console.log("rows in the users:", res.rows.length);
-        client.release();  // Release client back to pool
+        console.log("Users in database:", res.rows);
+        client.release();  // Release the client back into the pool
       })
       .catch(err => {
-        client.release();
         console.error("Query failed:", err);
+        client.release();  // Always release the client
       });
   })
-  .catch((err) => console.error("Database connection error:", err));
+  .catch(err => console.error("Database connection error:", err));
 
-module.exports = pool;
+// Initialize Express app
+const app = express();
+
+// Example API route to fetch users from the database
+app.get("/api/users", async (req, res) => {
+  try {
+    const result = await pool.query("SELECT * FROM users");
+    res.json(result.rows); // Send the result as JSON
+  } catch (error) {
+    console.error("Error fetching users:", error);
+    res.status(500).send("Server Error");
+  }
+});
+
+// Set up the server to listen on the correct port from the .env file
+const port = process.env.BACKEND_PORT || 5000;  // Use BACKEND_PORT from .env
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});

@@ -5,11 +5,11 @@
   "dependencies": {
     "cra-template": "1.2.0",
     "dotenv": "^16.4.7",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "react-helmet": "^6.1.0",
     "react-router-dom": "^7.1.5",
-    "react-scripts": "5.0.1"
+    "react-scripts": "^5.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -44,9 +44,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "bugs": {
     "url": "https://github.com/krasistos/schoolwebsite/issues"
   },
-  "homepage": "https://github.com/krasistos/schoolwebsite#readme"
+  "homepage": "./"
 }

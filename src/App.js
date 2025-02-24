@@ -1,15 +1,15 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Header from "./components/Header";
-import Nav from "./components/Nav";
-import Footer from "./components/Footer";
-import Home from "./pages/Home";
-import News from "./pages/News";
-import Library from "./pages/Library";
-import Rewards from "./pages/Rewards";
-import Contact from "./pages/Contact";
-import AdminPage from "./pages/AdminPage";
-import Schedule from "./pages/Schedule";
+import Header from "./components/Header.js";
+import Nav from "./components/Nav.js";
+import Footer from "./components/Footer.js";
+import Home from "./pages/Home.js";
+import News from "./pages/News.js";
+import Library from "./pages/Library.js";
+import Rewards from "./pages/Rewards.js";
+import Contact from "./pages/Contact.js";
+import AdminPage from "./pages/AdminPage.js";
+import Schedule from "./pages/Schedule.js";
 
 function App() {
   return (
