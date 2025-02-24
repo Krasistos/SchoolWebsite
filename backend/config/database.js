@@ -1,12 +1,13 @@
-require('dotenv').config();
+require("dotenv").config();
+const { Pool } = require("pg");
 
-module.exports = {
-  development: {
-    url: process.env.DATABASE_URL,
-    dialect: 'postgres',
-  },
-  production: {
-    url: process.env.DATABASE_URL,
-    dialect: 'postgres',
-  },
-};
+const pool = new Pool({
+  user: process.env.DB_USER,
+  host: process.env.DB_HOST,
+  database: process.env.DB_NAME,
+  password: process.env.DB_PASSWORD,
+  port: process.env.DB_PORT,
+  ssl: { rejectUnauthorized: false }, // Required for Render PostgreSQL
+});
+
+module.exports = pool;
