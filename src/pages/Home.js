@@ -74,15 +74,15 @@ function Home() {
               <p className="responsive-text">Тук можете да се регистрирате за фестивала.</p>
               <div className="btn-container">
                 <p>Регистрация на игрален филм с продължителност 5-20 мин.</p>
-                <a href="https://forms.gle/TRXuvzF5yaD8a1rTA" className="responsive-button btn">
+                <a href="https://forms.gle/TRXuvzF5yaD8a1rTA" className="responsive-button btn" target="_blank">
                   Регистрирай се
                 </a>
                 <p>Документален филм с продължителност 5-20 мин.</p>
-                <a href="https://forms.gle/ZGpMZSiYbTAwdw6a7" className="btn">
+                <a href="https://forms.gle/ZGpMZSiYbTAwdw6a7" className="btn"  target="_blank">
                   Регистрирай се
                 </a>
-                <p>Анимация - продължителност 5-20 мин.</p>
-                <a href="https://forms.gle/HomqrYggDMV7LDUy7" className="btn">
+                <p>Анимация - продължителност 1-20 мин.</p>
+                <a href="https://forms.gle/HomqrYggDMV7LDUy7" className="btn" target="_blank">
                   Регистрирай се
                 </a>
               </div>
@@ -228,9 +228,10 @@ function Home() {
             <source src="https://bnt.bg/f/video/o/336/f136eeac49b26673eae4ac5bbd45dfe0.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
-          <p>Кратко описание на видеото и статията.</p>
+          <p>В тази среща на госпожа Людмила Величкова-Иванова с екипа на предаването "100% будни" можете да разберете <br></br>
+          основна информация за това какво представлява фетивала и откъде идва вдъхновението за направата му.</p>
           <a href="/news" className="read-more">
-            Прочети повече
+            Други важни новини за събитието
           </a>
         </div>
       </div>
