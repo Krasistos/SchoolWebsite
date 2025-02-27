@@ -1,56 +1,64 @@
-"use client"
+"use client";
 
-import { useEffect, useState } from "react"
-import { Helmet } from "react-helmet"
-import "../styles.css"
+import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
+import "../styles.css";
 
 function Home() {
-  const [modalOpen, setModalOpen] = useState(false)
-  const [rulesModalOpen, setRulesModalOpen] = useState(false)
+  const [modalOpen, setModalOpen] = useState(false);
+  const [rulesModalOpen, setRulesModalOpen] = useState(false);
 
   useEffect(() => {
-    const elements = document.querySelectorAll(".container, .new-section, .article-section")
+    const elements = document.querySelectorAll(
+      ".container, .new-section, .article-section, .trophy-section"
+    );
 
     function checkScroll() {
       elements.forEach((el) => {
-        const position = el.getBoundingClientRect().top
+        const position = el.getBoundingClientRect().top;
         if (position < window.innerHeight - 100) {
-          el.classList.add("fade-in")
+          el.classList.add("fade-in");
         }
-      })
+      });
     }
 
-    window.addEventListener("scroll", checkScroll)
-    checkScroll()
+    window.addEventListener("scroll", checkScroll);
+    checkScroll();
 
     return () => {
-      window.removeEventListener("scroll", checkScroll)
-    }
-  }, [])
+      window.removeEventListener("scroll", checkScroll);
+    };
+  }, []);
 
   const openModal = () => {
-    setModalOpen(true)
-  }
+    setModalOpen(true);
+  };
 
   const closeModal = () => {
-    setModalOpen(false)
-  }
+    setModalOpen(false);
+  };
 
   const openRulesModal = () => {
-    setRulesModalOpen(true)
-  }
+    setRulesModalOpen(true);
+  };
 
   const closeRulesModal = () => {
-    setRulesModalOpen(false)
-  }
+    setRulesModalOpen(false);
+  };
 
   return (
     <>
       <Helmet>
         <title>Kur App</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
         <meta name="theme-color" content="#000000" />
-        <meta name="description" content="Web site created using create-react-app" />
+        <meta
+          name="description"
+          content="Web site created using create-react-app"
+        />
         <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
         <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
         <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
@@ -61,7 +69,10 @@ function Home() {
           <div className="column left-column">
             <div className="poster" onClick={openModal}>
               <div className="poster-overlay">
-                <button className="responsive-button view-poster-button" onClick={openModal}>
+                <button
+                  className="responsive-button view-poster-button"
+                  onClick={openModal}
+                >
                   View Poster
                 </button>
               </div>
@@ -69,24 +80,37 @@ function Home() {
           </div>
 
           <div className="column right-column">
-            <div className="register-section">
-              <h1 className="responsive-heading">Добре дошли!</h1>
-              <p className="responsive-text">Тук можете да се регистрирате за фестивала.</p>
+              <div className="new-section bordered-section">
+                <h2>Добре дошли!</h2>
+            <div className="">
+                <p className="responsive-text">
+                  Тук можете да се регистрирате за фестивала.
+                </p>
               <div className="btn-container">
                 <p>Регистрация на игрален филм с продължителност 5-20 мин.</p>
-                <a href="https://forms.gle/TRXuvzF5yaD8a1rTA" className="responsive-button btn">
+                <a
+                  href="https://forms.gle/TRXuvzF5yaD8a1rTA"
+                  className="view-trailer-btn"
+                  >
                   Регистрирай се
                 </a>
                 <p>Документален филм с продължителност 5-20 мин.</p>
-                <a href="https://forms.gle/ZGpMZSiYbTAwdw6a7" className="btn">
+                <a
+                  href="https://forms.gle/ZGpMZSiYbTAwdw6a7"
+                  className="view-trailer-btn"
+                  >
                   Регистрирай се
                 </a>
                 <p>Анимация - продължителност 5-20 мин.</p>
-                <a href="https://forms.gle/HomqrYggDMV7LDUy7" className="btn">
+                <a
+                  href="https://forms.gle/HomqrYggDMV7LDUy7"
+                  className="view-trailer-btn"
+                  >
                   Регистрирай се
                 </a>
               </div>
             </div>
+                  </div>
 
             <div className="new-section bordered-section">
               <h2>Информация за Фестивала</h2>
@@ -142,14 +166,21 @@ function Home() {
                 <section>
                   <h3>1. Цели на фестивала:</h3>
                   <ul>
-                    <li>Насърчаване на креативността и работата в екип между ученици и учители.</li>
-                    <li>Развитие на уменията за създаване на филмово съдържание.</li>
                     <li>
-                      Повишаване на интереса към изкуството и използването на различни софтуери, техника и свободно
-                      разпространявани музика, снимков и видео материал.
+                      Насърчаване на креативността и работата в екип между
+                      ученици и учители.
                     </li>
                     <li>
-                      Вярата в собствените неограничени възможности – всеки има главна роля в една филмова продукция.
+                      Развитие на уменията за създаване на филмово съдържание.
+                    </li>
+                    <li>
+                      Повишаване на интереса към изкуството и използването на
+                      различни софтуери, техника и свободно разпространявани
+                      музика, снимков и видео материал.
+                    </li>
+                    <li>
+                      Вярата в собствените неограничени възможности – всеки има
+                      главна роля в една филмова продукция.
                     </li>
                   </ul>
                 </section>
@@ -157,22 +188,38 @@ function Home() {
                 <section>
                   <h3>2. Период на провеждане:</h3>
                   <ul>
-                    <li>Създаване на филмите: през учебната 2024-2025 година.</li>
-                    <li>Краен срок за изпращане на филмите: 30 април 2025 г.</li>
+                    <li>
+                      Създаване на филмите: през учебната 2024-2025 година.
+                    </li>
+                    <li>
+                      Краен срок за изпращане на филмите: 30 април 2025 г.
+                    </li>
                     <li>Оценяване: м. май 2025 - ОНЛАЙН</li>
-                    <li>Официално награждаване: средата на юни 2025 г. в гр. София</li>
+                    <li>
+                      Официално награждаване: средата на юни 2025 г. в гр. София
+                    </li>
                   </ul>
                 </section>
 
                 <section>
                   <h3>3. Изисквания към участниците:</h3>
                   <ul>
-                    <li>Участие в една от категориите: Документален филм, Игрален филм, Анимационен филм</li>
+                    <li>
+                      Участие в една от категориите: Документален филм, Игрален
+                      филм, Анимационен филм
+                    </li>
                     <li>Ученици от 8 до 12 клас, в екип с учител(и)</li>
-                    <li>Допуска се участие на ученически екип от различни училища</li>
-                    <li>При реализирането на филма не се допуска използване на AI</li>
+                    <li>
+                      Допуска се участие на ученически екип от различни училища
+                    </li>
+                    <li>
+                      При реализирането на филма не се допуска използване на AI
+                    </li>
                     <li>Продължителност на филмите: от 5 до 20 минути</li>
-                    <li>Филмите трябва да бъдат създадени през учебната 2024-2025 година</li>
+                    <li>
+                      Филмите трябва да бъдат създадени през учебната 2024-2025
+                      година
+                    </li>
                     <li>Форматът на файла да бъде .mp4 или .mov</li>
                   </ul>
                 </section>
@@ -190,8 +237,13 @@ function Home() {
                   <h3>5. Награждаване</h3>
                   <p>Специално събитие в средата на м. юни 2025г.</p>
                   <ul>
-                    <li>Всяка категория получава 3 номинации за най-добър филм</li>
-                    <li>Награди за най-добър сценарий, режисура, актьорска игра, монтаж</li>
+                    <li>
+                      Всяка категория получава 3 номинации за най-добър филм
+                    </li>
+                    <li>
+                      Награди за най-добър сценарий, режисура, актьорска игра,
+                      монтаж
+                    </li>
                     <li>Специална награда за използване на ефекти</li>
                     <li>Плакети, грамоти и сертификати за участие</li>
                   </ul>
@@ -200,7 +252,8 @@ function Home() {
                 <section>
                   <h3>6. Организиране на награждаването</h3>
                   <p>
-                    <strong>Локация:</strong> в София (ще се уточни допълнително)
+                    <strong>Локация:</strong> в София (ще се уточни
+                    допълнително)
                   </p>
                   <p>
                     <strong>Програма:</strong>
@@ -215,7 +268,10 @@ function Home() {
 
                 <section className="contacts">
                   <h3>Контакти за възникнали въпроси:</h3>
-                  <p>0889292994 – г-жа Людмила Величкова-Иванова, главен координатор на фестивала</p>
+                  <p>
+                    0889292994 – г-жа Людмила Величкова-Иванова, главен
+                    координатор на фестивала
+                  </p>
                   <p>l.ivanova@51school.bg</p>
                 </section>
               </div>
@@ -223,9 +279,69 @@ function Home() {
           </div>
         )}
 
+        <div className="trophy-section">
+          {/* Add decorative circles */}
+          <div className="circle-decoration circle-3"></div>
+          <div className="circle-decoration circle-4"></div>
+
+          <h2 className="trophy-title">Награди от миналите издания</h2>
+          <div className="trophy-container">
+            <div className="trophy-item">
+              <div className="trophy-image trophy-gold">
+                <div className="trophy-number">1</div>
+              </div>
+              <h3>Златна награда</h3>
+              <button
+                className="view-trailer-btn"
+                onClick={() =>
+                  window.open("https://youtu.be/example1", "_blank")
+                }
+              >
+                Виж трейлър
+              </button>
+            </div>
+
+            <div className="trophy-item">
+              <div className="trophy-image trophy-silver">
+                <div className="trophy-number">2</div>
+              </div>
+              <h3>Сребърна награда</h3>
+              <button
+                className="view-trailer-btn"
+                onClick={() =>
+                  window.open("https://youtu.be/example2", "_blank")
+                }
+              >
+                Виж трейлър
+              </button>
+            </div>
+
+            <div className="trophy-item">
+              <div className="trophy-image trophy-bronze">
+                <div className="trophy-number">3</div>
+              </div>
+              <h3>Бронзова награда</h3>
+              <button
+                className="view-trailer-btn"
+                onClick={() =>
+                  window.open("https://youtu.be/example3", "_blank")
+                }
+              >
+                Виж трейлър
+              </button>
+            </div>
+          </div>
+        </div>
+
         <div className="article-section">
+          {/* Add decorative circles */}
+          <div className="circle-decoration circle-5"></div>
+
           <video controls className="responsive-video">
-            <source src="https://bnt.bg/f/video/o/336/f136eeac49b26673eae4ac5bbd45dfe0.mp4" type="video/mp4" />
+            <source
+              src="https://bnt.bg/f/video/o/336/f136eeac49b26673eae4ac5bbd45dfe0.mp4"
+              type="video/mp4"
+            />
             Your browser does not support the video tag.
           </video>
           <p>Кратко описание на видеото и статията.</p>
@@ -235,8 +351,7 @@ function Home() {
         </div>
       </div>
     </>
-  )
+  );
 }
 
-export default Home
-
+export default Home;
